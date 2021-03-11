@@ -7,55 +7,55 @@
 -- two dots ('..' - without quotes).
 
 CREATE TABLE "Vehicles" (
-    "Accident_Index" varchar   NOT NULL,
-    "Age_Band_of_Driver" VARCHAR   NOT NULL,
-    "Age_of_Vehicle" VARCHAR   NOT NULL,
-    "Hit_Object_in_Carriageway" VARCHAR   NOT NULL,
-    "Hit_Object_off_Carriageway" VARCHAR   NOT NULL,
-    "make" VARCHAR   NOT NULL,
-    "model" VARCHAR   NOT NULL,
-    "Sex_of_Driver" VARCHAR   NOT NULL,
-    "Skidding_and_Overturning" VARCHAR   NOT NULL,
-    "Towing_and_Articulation" VARCHAR   NOT NULL,
-    "Vehicle_Manoeuvre" VARCHAR   NOT NULL,
-    "Vehicle_Type" VARCHAR   NOT NULL,
-    "Was_Vehicle_Left_Hand_Drive" VARCHAR   NOT NULL,
-    "Year" INT   NOT NULL,
+    "Accident_Index" varchar25   NOT NULL,
+    "Age_Band_of_Driver" VARCHAR30   NOT NULL,
+    "Age_of_Vehicle" VARCHAR2   NOT NULL,
+    "Hit_Object_in_Carriageway" VARCHAR50   NOT NULL,
+    "Hit_Object_off_Carriageway" VARCHAR50   NOT NULL,
+    "make" VARCHAR30   NOT NULL,
+    "model" VARCHAR50   NOT NULL,
+    "Sex_of_Driver" VARCHAR10   NOT NULL,
+    "Skidding_and_Overturning" VARCHAR30   NOT NULL,
+    "Towing_and_Articulation" VARCHAR40   NOT NULL,
+    "Vehicle_Manoeuvre" VARCHAR50   NOT NULL,
+    "Vehicle_Type" VARCHAR50   NOT NULL,
+    "Was_Vehicle_Left_Hand_Drive" VARCHAR5   NOT NULL,
+    "Year" INT4   NOT NULL,
     CONSTRAINT "pk_Vehicles" PRIMARY KEY (
         "Accident_Index"
      )
 );
 
 CREATE TABLE "Accident" (
-    "Accident_Index" Int   NOT NULL,
-    "Date" VARCHAR   NOT NULL,
-    "Day_of_Week" VARCHAR   NOT NULL,
-    "Light_Conditions" VARCHAR   NOT NULL,
-    "Local_Authority_(District)" VARCHAR   NOT NULL,
-    "Number_of_Casualties" VARCHAR   NOT NULL,
-    "Number_of_Vehicles" varchar   NOT NULL,
-    "Pedestrian_Crossing-Human_Control" VARCHAR   NOT NULL,
-    "Pedestrian_Crossing-Physical_Facilities" VARCHAR   NOT NULL,
-    "Road_Surface_Conditions" VARCHAR   NOT NULL,
-    "Road_Type" VARCHAR   NOT NULL,
-    "Special_Conditions_at_Site" VARCHAR   NOT NULL,
-    "Time" VARCHAR   NOT NULL,
-    "Year" VARCHAR   NOT NULL,
-    "Month" VARCHAR   NOT NULL,
+    "Accident_Index" VARCHAR25   NOT NULL,
+    "Date" VARCHAR20   NOT NULL,
+    "Day_of_Week" VARCHAR10   NOT NULL,
+    "Light_Conditions" VARCHAR40   NOT NULL,
+    "Local_Authority_(District)" VARCHAR40   NOT NULL,
+    "Number_of_Casualties" INT3   NOT NULL,
+    "Number_of_Vehicles" INT3   NOT NULL,
+    "Pedestrian_Crossing-Human_Control" INT3   NOT NULL,
+    "Pedestrian_Crossing-Physical_Facilities" INT3   NOT NULL,
+    "Road_Surface_Conditions" VARCHAR30   NOT NULL,
+    "Road_Type" VARCHAR30   NOT NULL,
+    "Special_Conditions_at_Site" VARCHAR70   NOT NULL,
+    "Time" VARCHAR5   NOT NULL,
+    "Year" VARCHAR4   NOT NULL,
+    "Month" VARCHAR10   NOT NULL,
     CONSTRAINT "pk_Accident" PRIMARY KEY (
         "Accident_Index"
      )
 );
 
 CREATE TABLE "Weather" (
-    "year" VARCHAR   NOT NULL,
-    "month" VARCHAR   NOT NULL,
-    "tmax" INT   NOT NULL,
-    "tmin" INT   NOT NULL,
-    "af" INT   NOT NULL,
-    "rain" INT   NOT NULL,
-    "sun" INT   NOT NULL,
-    "station" INT   NOT NULL
+    "year" INT4   NOT NULL,
+    "month" INT2   NOT NULL,
+    "tmax" FLOAT   NOT NULL,
+    "tmin" FLOAT   NOT NULL,
+    "af" INT2   NOT NULL,
+    "rain" FLOAT   NOT NULL,
+    "sun" FLOAT   NOT NULL,
+    "station" VARCHAR20   NOT NULL
 );
 
 ALTER TABLE "Accident" ADD CONSTRAINT "fk_Accident_Accident_Index" FOREIGN KEY("Accident_Index")
